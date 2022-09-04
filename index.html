@@ -366,7 +366,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-09-03 14:39:46" itemprop="dateModified" datetime="2022-09-03T14:39:46+08:00">2022-09-03</time>
+      <time title="修改时间：2022-09-04 23:12:25" itemprop="dateModified" datetime="2022-09-04T23:12:25+08:00">2022-09-04</time>
     </span>
 
   
@@ -423,7 +423,32 @@
 <h4 id="Hexo托管到github"><a href="#Hexo托管到github" class="headerlink" title="Hexo托管到github"></a>Hexo托管到github</h4><h5 id="github注册"><a href="#github注册" class="headerlink" title="github注册"></a>github注册</h5><p><a target="_blank" rel="noopener" href="https://github.com/">注册</a>，我注册的名字是samzzzz，</p>
 <p>然后新建库repository，如果为了github pages能访问，那此处名字必须是<code>注册名.github.io</code>，即<a target="_blank" rel="noopener" href="https://samzzzz.github.io/">samzzzz.github.io</a>，且保持默认的Public，此时在库里上传个index.html，即可访问自己的github pages；</p>
 <p><a target="_blank" rel="noopener" href="https://pages.github.com/">github pages</a>的介绍，但具体步骤不需要按照这个，他的步骤是本地克隆，然后本地修改推到git上，咱们用hexo的deploy来推。</p>
-<p>安装git</p>
+<p>安装git，<a target="_blank" rel="noopener" href="https://git-scm.com/download/win">下载地址</a></p>
+<p>安装hexo-deployer-git</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<p>修改配置，hexo&#x2F;blog&#x2F;_config.yml里的deploy，注意repo后面的注释</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://github.com/samzzzz/samzzzz.github.io.git</span>   <span class="comment">#注意这里最后需要加.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+
+<p>也可以增加token，但是上传到git上的，总觉得不安全，还是不加了</p>
+<p>部署到github</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<p>初次会弹出窗口让浏览器登陆github，目的是关联权限，终于token还是关联权限还是ssh哪个安全还未知，慢慢研究吧。</p>
+<p>至此，以后修改md文件后两条语句即可</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<p> 也可浓缩成一条</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
 
       
     </div>
