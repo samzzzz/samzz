@@ -347,7 +347,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-09-05 14:32:19" itemprop="dateModified" datetime="2022-09-05T14:32:19+08:00">2022-09-05</time>
+      <time title="修改时间：2022-09-05 15:12:14" itemprop="dateModified" datetime="2022-09-05T15:12:14+08:00">2022-09-05</time>
     </span>
 
   
@@ -422,7 +422,17 @@
 <p> 也可浓缩成一条</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
 
-<p>下一篇，聊聊托管到AWS S3上咋搞。</p>
+<p>ok，可以正常同步上去了</p>
+<h5 id="github-pages使用自己域名"><a href="#github-pages使用自己域名" class="headerlink" title="github pages使用自己域名"></a>github pages使用自己域名</h5><p>域名DNS里域名CNAME设为xxx.github.io</p>
+<p>原本以为直接ok，结果不行，继续下面操作</p>
+<p>去github的xxx.github.io库里，Settings——Pages——Custom Domain，</p>
+<p>把已经CNAME的域名填进去，会自动检查，就ok了；</p>
+<p><strong>结果<code>hexo d</code>后又失效了</strong>，研究发现，设置域名后会在库里生成一个CNAME的文件，文件内容就是域名，一<code>hexo d</code>就没了</p>
+<p>解决办法在hexo的source文件夹下创建和CNAME的文件，重新三连</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<p>这样，deploy后库里也有CNAME文件了，搞定！</p>
+<p><strong>下一篇，聊聊托管到AWS S3上咋搞。</strong></p>
 
       
     </div>
