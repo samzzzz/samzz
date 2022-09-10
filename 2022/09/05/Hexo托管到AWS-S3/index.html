@@ -20,15 +20,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="有点长，慢慢写 注册AWS首先得有AWS吧，新账户有免费套餐，刚又新注册一个，没注册过的邮箱地址+信用卡即可，信用卡双币不成功的话试试单币种，免费套餐介绍 创建S3存储桶S3存储桶权限设置Hexo-deploy-S3安装密钥">
+    <meta name="description" content="有点长，慢慢写 注册AWS首先得有AWS吧，新账户有免费套餐，刚又新注册一个，没注册过的邮箱地址+信用卡即可，信用卡双币不成功的话试试单币种，免费套餐介绍 创建S3存储桶创建前测个速，看哪个区域比较快就在哪个区域创建S3，测速网站 如果不用域名访问，存储桶名字随便，但是域名cname访问，存储桶名字必须和域名一样； 公开访问创建过程记得打开公开访问，即取消“阻止所有公开访问”的对勾，其他没啥特">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo托管到AWS S3">
 <meta property="og:url" content="http://example.com/2022/09/05/Hexo%E6%89%98%E7%AE%A1%E5%88%B0AWS-S3/index.html">
 <meta property="og:site_name" content="Samzz&#39;s Blog">
-<meta property="og:description" content="有点长，慢慢写 注册AWS首先得有AWS吧，新账户有免费套餐，刚又新注册一个，没注册过的邮箱地址+信用卡即可，信用卡双币不成功的话试试单币种，免费套餐介绍 创建S3存储桶S3存储桶权限设置Hexo-deploy-S3安装密钥">
+<meta property="og:description" content="有点长，慢慢写 注册AWS首先得有AWS吧，新账户有免费套餐，刚又新注册一个，没注册过的邮箱地址+信用卡即可，信用卡双币不成功的话试试单币种，免费套餐介绍 创建S3存储桶创建前测个速，看哪个区域比较快就在哪个区域创建S3，测速网站 如果不用域名访问，存储桶名字随便，但是域名cname访问，存储桶名字必须和域名一样； 公开访问创建过程记得打开公开访问，即取消“阻止所有公开访问”的对勾，其他没啥特">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-09-05T06:46:19.000Z">
-<meta property="article:modified_time" content="2022-09-05T14:36:26.060Z">
+<meta property="article:modified_time" content="2022-09-10T15:29:48.169Z">
 <meta property="article:author" content="Samzz">
 <meta property="article:tag" content="测试">
 <meta name="twitter:card" content="summary">
@@ -111,7 +111,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%A8%E5%86%8CAWS"><span class="nav-number">1.</span> <span class="nav-text">注册AWS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BAS3%E5%AD%98%E5%82%A8%E6%A1%B6"><span class="nav-number">2.</span> <span class="nav-text">创建S3存储桶</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#S3%E5%AD%98%E5%82%A8%E6%A1%B6%E6%9D%83%E9%99%90%E8%AE%BE%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">S3存储桶权限设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hexo-deploy-S3%E5%AE%89%E8%A3%85"><span class="nav-number">4.</span> <span class="nav-text">Hexo-deploy-S3安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%86%E9%92%A5"><span class="nav-number">5.</span> <span class="nav-text">密钥</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%A8%E5%86%8CAWS"><span class="nav-number">1.</span> <span class="nav-text">注册AWS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BAS3%E5%AD%98%E5%82%A8%E6%A1%B6"><span class="nav-number">2.</span> <span class="nav-text">创建S3存储桶</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%AC%E5%BC%80%E8%AE%BF%E9%97%AE"><span class="nav-number">2.1.</span> <span class="nav-text">公开访问</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%90%AF%E7%94%A8%E9%9D%99%E6%80%81%E6%89%98%E7%AE%A1%E7%BD%91%E7%AB%99"><span class="nav-number">2.2.</span> <span class="nav-text">启用静态托管网站</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%89%93%E5%BC%80ACL"><span class="nav-number">2.3.</span> <span class="nav-text">打开ACL</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IAM%E7%94%A8%E6%88%B7%E3%80%81%E6%9D%83%E9%99%90%E5%92%8C%E5%AF%86%E9%92%A5"><span class="nav-number">3.</span> <span class="nav-text">IAM用户、权限和密钥</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85AWS-CLI"><span class="nav-number">4.</span> <span class="nav-text">安装AWS CLI</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-hexo-deployer-aws-s3"><span class="nav-number">5.</span> <span class="nav-text">安装 hexo-deployer-aws-s3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E5%A4%96%E8%AF%9D%EF%BC%9A%E5%90%8C%E6%97%B6%E9%83%A8%E7%BD%B2%E5%88%B0github-pages%E5%92%8CAWS-S3%E4%B8%8A"><span class="nav-number">6.</span> <span class="nav-text">题外话：同时部署到github pages和AWS S3上</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -124,12 +124,12 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">1</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -196,9 +196,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-09-05 14:46:19 / 修改时间：22:36:26" itemprop="dateCreated datePublished" datetime="2022-09-05T14:46:19+08:00">2022-09-05</time>
+      <time title="创建时间：2022-09-05 14:46:19" itemprop="dateCreated datePublished" datetime="2022-09-05T14:46:19+08:00">2022-09-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-09-10 23:29:48" itemprop="dateModified" datetime="2022-09-10T23:29:48+08:00">2022-09-10</time>
     </span>
 
   
@@ -213,7 +219,33 @@
     <div class="post-body" itemprop="articleBody">
         <p>  有点长，慢慢写</p>
 <h4 id="注册AWS"><a href="#注册AWS" class="headerlink" title="注册AWS"></a>注册AWS</h4><p>首先得有AWS吧，新账户有免费套餐，刚又新注册一个，没注册过的邮箱地址+信用卡即可，信用卡双币不成功的话试试单币种，<a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/free/">免费套餐介绍</a></p>
-<h4 id="创建S3存储桶"><a href="#创建S3存储桶" class="headerlink" title="创建S3存储桶"></a>创建S3存储桶</h4><h4 id="S3存储桶权限设置"><a href="#S3存储桶权限设置" class="headerlink" title="S3存储桶权限设置"></a>S3存储桶权限设置</h4><h4 id="Hexo-deploy-S3安装"><a href="#Hexo-deploy-S3安装" class="headerlink" title="Hexo-deploy-S3安装"></a>Hexo-deploy-S3安装</h4><h4 id="密钥"><a href="#密钥" class="headerlink" title="密钥"></a>密钥</h4>
+<h4 id="创建S3存储桶"><a href="#创建S3存储桶" class="headerlink" title="创建S3存储桶"></a>创建S3存储桶</h4><p>创建前测个速，看哪个区域比较快就在哪个区域创建S3，<a target="_blank" rel="noopener" href="https://s3-accelerate-speedtest.s3-accelerate.amazonaws.com/en/accelerate-speed-comparsion.html">测速网站</a></p>
+<p>如果不用域名访问，存储桶名字随便，但是域名cname访问，<strong>存储桶名字必须和域名一样</strong>；</p>
+<h5 id="公开访问"><a href="#公开访问" class="headerlink" title="公开访问"></a>公开访问</h5><p>创建过程记得打开公开访问，即取消“<strong>阻止所有公开访问</strong>”的对勾，其他没啥特别，过程不表；</p>
+<h5 id="启用静态托管网站"><a href="#启用静态托管网站" class="headerlink" title="启用静态托管网站"></a>启用静态托管网站</h5><p>创建后，进入<strong>存储桶——权限——（最下面）静态网站托管——启用“静态网站托管”、托管类型选择”静态网站托管“、索引文件”index.html”</strong></p>
+<h5 id="打开ACL"><a href="#打开ACL" class="headerlink" title="打开ACL"></a>打开ACL</h5><p><strong>存储桶——权限——对象所有权——编辑——ACL已启用</strong></p>
+<h4 id="IAM用户、权限和密钥"><a href="#IAM用户、权限和密钥" class="headerlink" title="IAM用户、权限和密钥"></a>IAM用户、权限和密钥</h4><p>创建IAM用户，给予S3的权限，具体啥权限我没研究，就把S3所有权限都给了；</p>
+<p><strong>用户——添加权限——直接附加现有策略——搜S3选择“AmazonS3FullAccess“</strong></p>
+<p><strong>安全证书——创建访问密钥，保存下来，后面aws cli会用到；</strong></p>
+<h4 id="安装AWS-CLI"><a href="#安装AWS-CLI" class="headerlink" title="安装AWS CLI"></a>安装AWS CLI</h4><p><a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/cli/">这里</a>下载AWS CLI安装，安装后重新打开cmd窗口，<code>aws configure</code>，提示输入ak和sk，就是上面下载的访问密钥，默认区域自己找，默认输出模式可以不填直接回车，这样aws cli就有了上面那个用户的密钥了，cli访问aws就有权限了；</p>
+<h4 id="安装-hexo-deployer-aws-s3"><a href="#安装-hexo-deployer-aws-s3" class="headerlink" title="安装 hexo-deployer-aws-s3"></a>安装 hexo-deployer-aws-s3</h4><p>AWS设置好了，现在要给hexo安装 hexo-deployer-aws-s3插件，否则无法deploy到S3上；</p>
+<p>在blog目录下，</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-aws-s3 --save-dev</span><br></pre></td></tr></table></figure>
+
+<p>安装完毕还要去hexo的_config.yml里设置depoly，原来deploy是git，现在改成aws-s3，按照下面改就没问题，bucket和region当然是上面创建的bucket名和创建区域了，</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="comment">#type: git</span></span><br><span class="line">  <span class="comment">#repo: https://github.com/samzzzz/samzzzz.github.io.git</span></span><br><span class="line">  <span class="comment">#branch: master</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">aws-s3</span></span><br><span class="line">  <span class="attr">region:</span> <span class="string">ap-southeast-1</span></span><br><span class="line">  <span class="attr">bucket:</span> <span class="string">samzz.ml</span></span><br><span class="line">  <span class="attr">prefix:</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>至此设置完毕；</p>
+<p>测试下<code>hexo d</code>看是否部署到AWS S3成功，不成功试下hexo三联，还不行，回头再看一遍找问题吧。</p>
+<h4 id="题外话：同时部署到github-pages和AWS-S3上"><a href="#题外话：同时部署到github-pages和AWS-S3上" class="headerlink" title="题外话：同时部署到github pages和AWS S3上"></a>题外话：同时部署到github pages和AWS S3上</h4><p>没想到好办法，我是在blog文件夹下创建了两个yaml文件，分别是S3和git的，名字为<code>_config-s3.yml</code>和<code>_config-git.yml</code>，写了两个批处理</p>
+<p>git.bat</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">del _config.yml</span><br><span class="line">copy _config-git.yml _config.yml</span><br></pre></td></tr></table></figure>
+
+<p>s3.bat</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">del _config.yml</span><br><span class="line">copy _config-s3.yml _config.yml</span><br></pre></td></tr></table></figure>
+
+<p>最笨的办法了，就是想部署到哪里，就运行bat删除<code>_config.yml</code>然后把对应的配置文件复制成<code>_config.yml</code></p>
+
     </div>
 
     
