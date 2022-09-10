@@ -22,26 +22,26 @@
 
     <meta name="description" content="终于抽点空搞了静态博客，用的hexo，方便同步github，也方便同步AWS S3，记录下 Hexo安装安装Node.jsHexo基于Node.js，Node.js下载地址：Download | Node.js 下载安装包，安装Node.js会包含环境变量及npm的安装，安装后，检测Node.js是否安装成功，在命令行中输入 node -v  检测npm是否安装成功，在命令行中输入npm -v :">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo静态博客Hexo静态博客+github部署">
-<meta property="og:url" content="http://example.com/2022/08/31/Hexo%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2Hexo%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2+github%E9%83%A8%E7%BD%B2/index.html">
+<meta property="og:title" content="Hexo静态博客搞起来">
+<meta property="og:url" content="http://example.com/2022/08/31/Hexo%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E6%90%9E%E8%B5%B7%E6%9D%A5/index.html">
 <meta property="og:site_name" content="Samzz&#39;s Blog">
 <meta property="og:description" content="终于抽点空搞了静态博客，用的hexo，方便同步github，也方便同步AWS S3，记录下 Hexo安装安装Node.jsHexo基于Node.js，Node.js下载地址：Download | Node.js 下载安装包，安装Node.js会包含环境变量及npm的安装，安装后，检测Node.js是否安装成功，在命令行中输入 node -v  检测npm是否安装成功，在命令行中输入npm -v :">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-08-31T13:38:58.000Z">
-<meta property="article:modified_time" content="2022-09-05T07:12:14.033Z">
+<meta property="article:modified_time" content="2022-09-08T02:01:05.976Z">
 <meta property="article:author" content="Samzz">
-<meta property="article:tag" content="hexo node.js github">
+<meta property="article:tag" content="hexo node.js">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/2022/08/31/Hexo%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2Hexo%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2+github%E9%83%A8%E7%BD%B2/">
+<link rel="canonical" href="http://example.com/2022/08/31/Hexo%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E6%90%9E%E8%B5%B7%E6%9D%A5/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/08/31/Hexo%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2Hexo%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2+github%E9%83%A8%E7%BD%B2/","path":"2022/08/31/Hexo静态博客Hexo静态博客+github部署/","title":"Hexo静态博客Hexo静态博客+github部署"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/08/31/Hexo%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E6%90%9E%E8%B5%B7%E6%9D%A5/","path":"2022/08/31/Hexo静态博客搞起来/","title":"Hexo静态博客搞起来"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Hexo静态博客Hexo静态博客+github部署 | Samzz's Blog</title>
+<title>Hexo静态博客搞起来 | Samzz's Blog</title>
   
 
 
@@ -111,7 +111,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Hexo%E5%AE%89%E8%A3%85"><span class="nav-number">1.</span> <span class="nav-text">Hexo安装</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Node-js"><span class="nav-number">1.1.</span> <span class="nav-text">安装Node.js</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Hexo"><span class="nav-number">1.2.</span> <span class="nav-text">安装Hexo</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%96%B0%E5%BB%BA%E5%8D%9A%E5%AE%A2"><span class="nav-number">1.3.</span> <span class="nav-text">新建博客</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#hexo%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4"><span class="nav-number">1.4.</span> <span class="nav-text">hexo常见命令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9B%B4%E6%8D%A2%E4%B8%BB%E9%A2%98"><span class="nav-number">1.5.</span> <span class="nav-text">更换主题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9site%E4%BF%A1%E6%81%AF"><span class="nav-number">1.6.</span> <span class="nav-text">修改site信息</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BC%96%E8%BE%91%E6%96%87%E7%AB%A0"><span class="nav-number">1.7.</span> <span class="nav-text">编辑文章</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hexo%E6%89%98%E7%AE%A1%E5%88%B0github"><span class="nav-number">2.</span> <span class="nav-text">Hexo托管到github</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#github%E6%B3%A8%E5%86%8C"><span class="nav-number">2.1.</span> <span class="nav-text">github注册</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#github-pages%E4%BD%BF%E7%94%A8%E8%87%AA%E5%B7%B1%E5%9F%9F%E5%90%8D"><span class="nav-number">2.2.</span> <span class="nav-text">github pages使用自己域名</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Hexo%E5%AE%89%E8%A3%85"><span class="nav-number">1.</span> <span class="nav-text">Hexo安装</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Node-js"><span class="nav-number">1.1.</span> <span class="nav-text">安装Node.js</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Hexo"><span class="nav-number">1.2.</span> <span class="nav-text">安装Hexo</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%96%B0%E5%BB%BA%E5%8D%9A%E5%AE%A2"><span class="nav-number">1.3.</span> <span class="nav-text">新建博客</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#hexo%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4"><span class="nav-number">1.4.</span> <span class="nav-text">hexo常见命令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9B%B4%E6%8D%A2%E4%B8%BB%E9%A2%98"><span class="nav-number">1.5.</span> <span class="nav-text">更换主题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9site%E4%BF%A1%E6%81%AF"><span class="nav-number">1.6.</span> <span class="nav-text">修改site信息</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BC%96%E8%BE%91%E6%96%87%E7%AB%A0"><span class="nav-number">1.7.</span> <span class="nav-text">编辑文章</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hexo%E6%89%98%E7%AE%A1%E5%88%B0github"><span class="nav-number">2.</span> <span class="nav-text">Hexo托管到github</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#github%E6%B3%A8%E5%86%8C"><span class="nav-number">2.1.</span> <span class="nav-text">github注册</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -168,7 +168,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/31/Hexo%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2Hexo%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2+github%E9%83%A8%E7%BD%B2/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/31/Hexo%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E6%90%9E%E8%B5%B7%E6%9D%A5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -181,12 +181,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Hexo静态博客Hexo静态博客+github部署 | Samzz's Blog">
+      <meta itemprop="name" content="Hexo静态博客搞起来 | Samzz's Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hexo静态博客Hexo静态博客+github部署
+          Hexo静态博客搞起来
         </h1>
 
         <div class="post-meta-container">
@@ -204,7 +204,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-09-05 15:12:14" itemprop="dateModified" datetime="2022-09-05T15:12:14+08:00">2022-09-05</time>
+      <time title="修改时间：2022-09-08 10:01:05" itemprop="dateModified" datetime="2022-09-08T10:01:05+08:00">2022-09-08</time>
     </span>
 
   
@@ -272,24 +272,21 @@
 <p>部署到github</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 
-<p>初次会弹出窗口让浏览器登陆github，目的是关联权限，<strong>至于token还是关联权限还是ssh哪个安全还未知，慢慢研究吧。</strong></p>
+<p>初次会弹出窗口让浏览器登陆github，目的是关联权限，终于token还是关联权限还是ssh哪个安全还未知，慢慢研究吧。</p>
 <p>至此，以后修改md文件后两条语句即可</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 
 <p> 也可浓缩成一条</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
 
-<p>ok，可以正常同步上去了</p>
-<h5 id="github-pages使用自己域名"><a href="#github-pages使用自己域名" class="headerlink" title="github pages使用自己域名"></a>github pages使用自己域名</h5><p>域名DNS里域名CNAME设为xxx.github.io</p>
-<p>原本以为直接ok，结果不行，继续下面操作</p>
-<p>去github的xxx.github.io库里，Settings——Pages——Custom Domain，</p>
-<p>把已经CNAME的域名填进去，会自动检查，就ok了；</p>
-<p><strong>结果<code>hexo d</code>后又失效了</strong>，研究发现，设置域名后会在库里生成一个CNAME的文件，文件内容就是域名，一<code>hexo d</code>就没了</p>
-<p>解决办法在hexo的source文件夹下创建和CNAME的文件，重新三连</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 
-<p>这样，deploy后库里也有CNAME文件了，搞定！</p>
-<p><strong>下一篇，聊聊托管到AWS S3上咋搞。</strong></p>
+
+
+
+
+
+
+
 
     </div>
 
@@ -299,20 +296,20 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/hexo-node-js-github/" rel="tag"># hexo node.js github</a>
+              <a href="/tags/hexo-node-js/" rel="tag"># hexo node.js</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/08/31/Hexo%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E6%90%9E%E8%B5%B7%E6%9D%A5/" rel="prev" title="Hexo静态博客搞起来">
-                  <i class="fa fa-chevron-left"></i> Hexo静态博客搞起来
+                <a href="/2022/08/30/hello-world/" rel="prev" title="Hello World">
+                  <i class="fa fa-chevron-left"></i> Hello World
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/09/02/Markdown%E7%A5%9E%E5%99%A8typora%200.11.18/" rel="next" title="Markdown神器typora 0.11.18">
-                  Markdown神器typora 0.11.18 <i class="fa fa-chevron-right"></i>
+                <a href="/2022/08/31/Hexo%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2Hexo%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2+github%E9%83%A8%E7%BD%B2/" rel="next" title="Hexo静态博客Hexo静态博客+github部署">
+                  Hexo静态博客Hexo静态博客+github部署 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
